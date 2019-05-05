@@ -1,0 +1,3 @@
+github "ReactiveX/RxSwift"
+github "SwiftyBeaver/SwiftyBeaver"
+github "httpswift/swifter" ~> 1.4.6

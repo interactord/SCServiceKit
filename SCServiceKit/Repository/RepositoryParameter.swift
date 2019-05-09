@@ -5,5 +5,5 @@
 
 import Foundation
 
-protocol RepositoryParameter {
+public protocol RepositoryParameter {
 }

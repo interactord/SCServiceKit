@@ -7,7 +7,7 @@ import Foundation
 
 import RxSwift
 
-protocol Repository {
+public protocol Repository {
 	associatedtype Resource
 
 	func create(with parameter: RepositoryParameter?) -> Observable<ResultContent<Resource>>

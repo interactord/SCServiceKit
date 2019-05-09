@@ -5,5 +5,5 @@
 
 import Foundation
 
-struct NoRepositoryParameter: RepositoryParameter {
+public struct NoRepositoryParameter: RepositoryParameter {
 }

@@ -16,11 +16,11 @@ public protocol Endpoint {
 
 extension Endpoint {
 
-	var headers: [String: String]? {
+	public var headers: [String: String]? {
 		return  nil
 	}
 
-	var bodyParameters: [String: Any]? {
+	public var bodyParameters: [String: Any]? {
 		return nil
 	}
 

@@ -7,36 +7,36 @@ import UIKit
 
 public class UIApplicationNetworkActivity {
 
-	// MARK: - Private
+  // MARK: - Private
 
   var application: UIApplication
-	var counter: Int
+  var counter: Int
 
-	// MARK: - Initializing
-	public init(application: UIApplication) {
-		self.application = application
-		counter = 0
-	}
+  // MARK: - Initializing
+  public init(application: UIApplication) {
+    self.application = application
+    counter = 0
+  }
 
 }
 
 extension UIApplicationNetworkActivity: NetworkActivity {
 
-	// MARK: - functions for protocol
+  // MARK: - functions for protocol
 
-	public func show() {
-		counter = counter.increase(1)
+  public func show() {
+    counter = counter.increase(1)
 
-		if false == application.isNetworkActivityIndicatorVisible {
-			application.isNetworkActivityIndicatorVisible = true
-		}
-	}
+    if false == application.isNetworkActivityIndicatorVisible {
+      application.isNetworkActivityIndicatorVisible = true
+    }
+  }
 
-	public func hide() {
-		counter = counter.decrease(1, min: 0)
+  public func hide() {
+    counter = counter.decrease(1, min: 0)
 
-		if counter == 0 && application.isNetworkActivityIndicatorVisible {
-			application.isNetworkActivityIndicatorVisible = false
-		}
-	}
+    if counter == 0 && application.isNetworkActivityIndicatorVisible {
+      application.isNetworkActivityIndicatorVisible = false
+    }
+  }
 }

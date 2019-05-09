@@ -29,14 +29,18 @@ public class URLSessionNetworkAdapter {
 
 extension URLSessionNetworkAdapter: NetworkAdapter {
   public func rx_send(request: URLRequest) -> Observable<Response> {
-    networkActivity.show()
+    DispatchQueue.main.async {
+      self.networkActivity.show()
+    }
 
     return Observable.create { [weak self] observer in
       var didHideNetworkActivity = false
 
       let task = self?.session.dataTask(with: request) { data, response, err in
         didHideNetworkActivity = true
-        self?.networkActivity.hide()
+        DispatchQueue.main.async {
+          self?.networkActivity.hide()
+        }
 
         if let err = err {
           observer.onError(NetworkError(error: err))
@@ -52,7 +56,9 @@ extension URLSessionNetworkAdapter: NetworkAdapter {
 
       return Disposables.create {
         if didHideNetworkActivity == false {
-          self?.networkActivity.hide()
+          DispatchQueue.main.async {
+            self?.networkActivity.hide()
+          }
         }
         task?.cancel()
       }

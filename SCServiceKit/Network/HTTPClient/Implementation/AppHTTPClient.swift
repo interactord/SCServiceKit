@@ -56,6 +56,10 @@ extension AppHTTPClient: HTTPClient {
           return Observable.error(httpErrorHandler.handle(response: response))
         }
 
+        if response.statusCode == HTTPStatusCode.noContent {
+          return Observable.just(ResultContent.noContent)
+        }
+
         guard let data = response.data else {
           return Observable.just(ResultContent.noContent)
         }
@@ -84,6 +88,10 @@ extension AppHTTPClient: HTTPClient {
 
         if false == response.succeed {
           return Observable.error(httpErrorHandler.handle(response: response))
+        }
+
+        if response.statusCode == HTTPStatusCode.noContent {
+          return Observable.just(ResultContent.noContent)
         }
 
         guard let data = response.data else {

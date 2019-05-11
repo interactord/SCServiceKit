@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "SCServiceKit"
-    s.version      = "1.0.0"
+    s.version      = "1.0.1"
     s.summary      = "SCServiceKit is Network framework for iOS applications, based on a Clean Archecture."
     s.description  = <<-DESC
   SCServiceKit aim to
